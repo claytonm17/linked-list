@@ -58,7 +58,7 @@ class LinkedList {
     {
         let currentNode = this.listHead;
         let count = 0
-        while (currentNode.next != null){
+        while (currentNode != null){
             if (count === index) {
                 return currentNode.value;
             }
@@ -114,21 +114,5 @@ class LinkedList {
         return str += "null"
     }
 }
-
-// Test cases
-const dogs = new LinkedList();
-
-dogs.append("Archie");
-dogs.append("Jack");
-dogs.prepend("Ruby");
-dogs.append("Charlie");
-dogs.append("Buddy");
-dogs.prepend("Jake");
-dogs.append("Jasmine"); // size should equal 7 
-dogs.append("Jackson");
-
-console.log(dogs.toString())
-console.log(dogs.pop())
-console.log(dogs.toString())
 
 export default LinkedList;

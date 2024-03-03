@@ -53,14 +53,76 @@ class LinkedList {
         }
         return currentNode;
     }
+
+    at(index)
+    {
+        let currentNode = this.listHead;
+        let count = 0
+        while (currentNode.next != null){
+            if (count == index) {
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+            count += 1;
+        }
+    }
+
+    pop()
+    {
+        let currentNode = this.listHead;  
+        while (currentNode.next != null){
+            currentNode = currentNode.next; 
+        }
+        currentNode.value = null;
+        currentNode.next = null;
+    }
+
+    contains(value)  //broken currently
+    {
+        let currentNode = this.listHead;  
+        while (currentNode.next != null){
+            if (currentNode.value == value){
+                return true;
+            }
+            currentNode = currentNode.next; 
+        }
+        return false;
+    }
+
+    find(value)
+    {
+        let currentNode = this.listHead;
+        let count = 0;
+        while (currentNode.value != null){
+            if (currentNode.value == value){  // Broken for non existing values
+                return count;
+            }
+            currentNode = currentNode.next; 
+            count += 1;
+        }
+        return null;
+    }
+
+    toString()
+    {
+        let currentNode = this.listHead;
+        let str = "";
+        while (currentNode != null){
+            str += `(${currentNode.value}) -> `
+            currentNode = currentNode.next; 
+        }
+        return str += "null"
+    }
 }
 
+// Test cases
 const dogs = new LinkedList();
 dogs.append("Archie");
 dogs.append("Jack");
 dogs.prepend("Ruby");
 dogs.append("Charlie");
-//console.log(dogs)
-console.log(dogs.size())
+dogs.append("Buddy");
+dogs.prepend("Jake");
+dogs.prepend("Jasmine");
 
 export default LinkedList

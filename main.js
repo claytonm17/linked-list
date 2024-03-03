@@ -1,5 +1,3 @@
-import Node from './node.js';
+import LinkedList from './linkedList.js';
 
-const archie = new Node();
-
-console.log(archie.value)
+let list = new LinkedList()
